@@ -75,7 +75,8 @@ export default {
                                 this.$store.commit('user/SET_USERINFO', user.data)
                                 setCache('userInfo',user.data)
                                 this.$router.push("/home/user")
-                            })   
+                            }) 
+                            this.$message({message:res.msg,type:'success'})
                         }
                     }).catch(err => {
                         console.log(err);
