@@ -14,5 +14,5 @@ Router.prototype.push = function push(location) {
 }
 export default new Router({
     routes,
-    mode: "history"
+    mode: "hash"
 })
