@@ -33,7 +33,7 @@ jobs:
         run: yarn build
       
       # 执行部署
-      - name: Deploy to Pages
+      - name: Deploy vueAdmin to Pages
         run: |
           cd  ./dist
           git init
