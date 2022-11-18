@@ -15,11 +15,6 @@
                 :tableOperation="tableOperation"
                 :isSelection="false"
             >
-                <template v-slot:status="props">
-                    <el-button type="danger" size="small">{{
-                        props.scope.row.status === 0 ? "启用" : "禁用"
-                    }}</el-button>
-                </template>
                 <!-- 自定义操作部分 -->
                 <template v-slot:[tableOperation.param]="props">
                     <el-button
@@ -32,41 +27,6 @@
                     >
                 </template>
             </Table>
-            <!-- <el-table :data="getpageData" style="width: 100%">
-                <el-table-column prop="name" label="姓名" algin="center">
-                </el-table-column>
-                <el-table-column prop="sex" label="性别" algin="center">
-                </el-table-column>
-                <el-table-column prop="age" label="年龄" algin="center">
-                </el-table-column>
-                <el-table-column prop="father" label="父亲" algin="center">
-                </el-table-column>
-                <el-table-column prop="mather" label="母亲" algin="center">
-                </el-table-column>
-                <el-table-column prop="address" label="家庭地址" algin="center">
-                </el-table-column>
-                <el-table-column prop="school" label="毕业院校" algin="center">
-                </el-table-column>
-                <el-table-column prop="phone" label="联系方式" algin="center">
-                </el-table-column>
-                <el-table-column label="操作" algin="center">
-                    <template slot-scope="scope">
-                        <el-button
-                            type="primary"
-                            size="mini"
-                            icon="el-icon-edit"
-                            @click="edit(scope.row.id)"
-                        ></el-button>
-                        <el-button
-                            type="danger"
-                            size="mini"
-                            icon="el-icon-delete"
-                            @click="del(scope.row.id)"
-                        ></el-button>
-                    </template>
-                </el-table-column>
-            </el-table> -->
-
            <!-- 分页器 -->
             <Pagination
                 :total="total"
@@ -175,7 +135,7 @@ export default {
                 },
             ],
             tableData: [],
-             tableOperation: {
+            tableOperation: {
                 label: "操作",
                 param: "operate",
                 childDefault: false,
