@@ -41,6 +41,9 @@ import {
     Slider,
     Upload,
     Tag,
+    Dropdown,
+    DropdownMenu,
+    DropdownItem,
     Backtop
 } from 'element-ui';
 
@@ -81,10 +84,10 @@ Vue.use(TimePicker);
 Vue.use(Slider);
 Vue.use(Upload);
 Vue.use(Tag);
+Vue.use(Dropdown);
+Vue.use(DropdownMenu);
+Vue.use(DropdownItem);
 Vue.use(Backtop);
-
-
-
 
 
 Vue.use(Loading.directive);

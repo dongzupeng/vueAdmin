@@ -2,24 +2,41 @@
     <div class="header">
         <el-header>
             <div class="title">头文字D的系统</div>
-            <div class="icon-screenfull">
+            <div class="icon-screenfull" @click.stop="screenFull">
                 <svg-icon
-                icon-class="quanping"
-                className="quanping-icon"
-            ></svg-icon>
+                    :icon-class="isFullscreen ? 'tuichuquanping' : 'quanping'"
+                    className="quanping-icon"
+                ></svg-icon>
             </div>
-            <div class="userInfo">
-                <img :src="userInfo.avatar" alt="" /><span>{{
-                    userInfo.username
-                }}</span>
-            </div>
+            <el-dropdown @command="handleCommand">
+                <div class="userInfo">
+                    <img :src="userInfo.avatar" alt="" /><span>{{
+                        userInfo.username
+                    }}</span>
+                </div>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item command="center">
+                        <div>个人中心</div>
+                    </el-dropdown-item>
+                    <el-dropdown-item command="setting">
+                        <div>个人设置</div>
+                    </el-dropdown-item>
+                    <el-dropdown-item command="goGitHub">
+                        <div>项目地址</div>
+                    </el-dropdown-item>
+                    <el-dropdown-item command="logout" divided>
+                        <div>退出登录</div>
+                    </el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
         </el-header>
     </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-// import screenfull from 'screenfull';
+import { removeCache } from "@/utils/setCache";
+import screenfull from "screenfull";
 export default {
     data() {
         return {
@@ -42,6 +59,21 @@ export default {
             screenfull.toggle();
             this.isFullscreen = !this.isFullscreen;
         },
+        handleCommand(command) {
+            // this.$message("click on item " + command);
+            if (command == "center") {
+                this.$router.push("/userSystem/center");
+            } else if (command == "setting") {
+                this.$router.push("/userSystem/setting");
+            } else if (command == "goGitHub") {
+                window.open("https://github.com/dongzupeng/vueAdmin", "_blank");
+            } else if (command == "logout") {
+                removeCache("token");
+                removeCache("userInfo");
+                this.$router.push("/login");
+                this.$message({ message: "退出成功", type: "success" });
+            }
+        },
     },
 };
 </script>
@@ -60,16 +92,16 @@ export default {
             width: 300px;
             font-size: 30px;
         }
-        .icon-screenfull{
+        .icon-screenfull {
             position: absolute;
             right: 120px;
             top: 10px;
-            width: 100px;
-            height: 40px;
             // background-color: #fff;
-            .quanping-icon{
+            .quanping-icon {
                 z-index: 9999;
-                color: #b5fffc;
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
             }
         }
         .userInfo {
