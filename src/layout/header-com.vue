@@ -91,11 +91,13 @@ export default {
         .title {
             width: 300px;
             font-size: 30px;
+            color: #fff;
         }
         .icon-screenfull {
             position: absolute;
             right: 120px;
             top: 10px;
+            margin-right: 20px;
             // background-color: #fff;
             .quanping-icon {
                 z-index: 9999;
@@ -106,6 +108,7 @@ export default {
         }
         .userInfo {
             cursor: pointer;
+            color: #fff;
             img {
                 width: 50px;
                 height: 50px;
