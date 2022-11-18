@@ -7,6 +7,7 @@ import "@/assets/css/element-variables.scss"
 //全局注册elementui 组件
 import elementcomponents from "@/utils/globalElement"
 import './permission.js'
+import './icons/index'
 Vue.use(elementcomponents)
 
 //使用mock
