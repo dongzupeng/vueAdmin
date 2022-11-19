@@ -7,6 +7,7 @@
                 @open="handleOpen"
                 @close="handleClose"
                 :unique-opened="true"
+                :default-active="currentMenu"
                 background-color="#8759fe"
                 text-color="#fff"
                 active-text-color="#8759fe"
@@ -36,6 +37,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
 export default {
     data() {
         return {
@@ -45,10 +47,23 @@ export default {
     created() {
         this.menus = [...this.$router.options.routes];
     },
+    mounted() {
+        const currentMenu = this.$route.meta.path;
+        this.$store.commit("tags/SET_CURRENTMENU", currentMenu);
+    },
+    watch: {
+        $route(to, from) {
+            const currentMenu = this.$route.meta.path;
+            this.$store.commit("tags/SET_CURRENTMENU", currentMenu);
+        },
+    },
     computed: {
         getMenus() {
             return this.menus.filter((item) => !item.hidden);
         },
+        ...mapState({
+            currentMenu: (state) => state.tags.currentMenu,
+        }),
     },
     methods: {
         handleOpen(key, keyPath) {

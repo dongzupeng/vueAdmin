@@ -1,5 +1,6 @@
 import { getCache, setCache, removeCache } from '@/utils/setCache';
 const state = {
+    currentMenu: getCache('currentMenu') || "",
     tabsList: [
         {
             title:'用户列表',
@@ -14,6 +15,9 @@ const mutations = {
     SELECT_MENU(state, val) {
         state.tabsList = val
     },
+    SET_CURRENTMENU(state,val){
+        state.currentMenu = val
+    }
 
 };
 
