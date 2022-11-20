@@ -44,6 +44,9 @@ import {
     Dropdown,
     DropdownMenu,
     DropdownItem,
+    Avatar,
+    Divider,
+    Progress,
     Backtop
 } from 'element-ui';
 
@@ -87,6 +90,9 @@ Vue.use(Tag);
 Vue.use(Dropdown);
 Vue.use(DropdownMenu);
 Vue.use(DropdownItem);
+Vue.use(Avatar);
+Vue.use(Divider);
+Vue.use(Progress);
 Vue.use(Backtop);
 
 

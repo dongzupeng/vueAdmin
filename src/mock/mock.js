@@ -30,10 +30,10 @@ Mock.mock('/user/userinfo', 'get', {
     msg: '请求成功',
     data:{
         id: "@id()",//得到随机的id,对象
-        username: "@cname()",//随机生成中文名字
+        username: "藤原拓海",//随机生成中文名字
         // username: "admin",//随机生成中文名字
         date: "@date()",//随机生成日期
-        avatar: "@image('200x200','red','#fff','avatar')",//生成图片,参数:size, background, foreground, text
+        avatar: "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",//生成图片,参数:size, background, foreground, text
         description: "@paragraph()",//描述
         ip: "@ip()",//IP地址
         email: "@email()"//email

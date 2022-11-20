@@ -217,4 +217,33 @@ export default [
 
         ]
     },
+    {
+        path: '/home',
+        name: "个人中心",
+        iconClass: 'el-icon-s-home',
+        component: () => import("@/views/home.vue"),
+        children: [
+            {
+                path: '/home/homePage',
+                name: '个人中心',
+                iconClass: 'el-icon-s-home',
+                component: () => import("@/views/personalCenter/homePage.vue"),
+                meta: {
+                    title: '个人中心',
+                    path: '/home/homePage'
+                },
+            },
+            {
+                path: '/home/setting',
+                name: '个人设置',
+                iconClass: 'el-icon-s-tools',
+                component: () => import("@/views/personalCenter/setting.vue"),
+                meta: {
+                    title: '个人设置',
+                    path: '/home/setting'
+                },
+            },
+
+        ]
+    },
 ]
