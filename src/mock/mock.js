@@ -33,7 +33,7 @@ Mock.mock('/user/userinfo', 'get', {
         username: "藤原拓海",//随机生成中文名字
         // username: "admin",//随机生成中文名字
         date: "@date()",//随机生成日期
-        avatar: "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png",//生成图片,参数:size, background, foreground, text
+        avatar: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190909%2Fdd3f01662751406fb01fbbbb8f0bd1ff.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1671552559&t=f63764eb5d58730f929143d77e1dd140",//生成图片,参数:size, background, foreground, text
         description: "@paragraph()",//描述
         ip: "@ip()",//IP地址
         email: "@email()"//email

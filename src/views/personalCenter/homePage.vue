@@ -4,9 +4,9 @@
             <div class="top">
                 <el-avatar
                     :size="100"
-                    src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+                    :src="userInfo.avatar"
                 ></el-avatar>
-                <div class="name">藤原拓海</div>
+                <div class="name">{{userInfo.username}}</div>
                 <div class="role">管理员</div>
             </div>
             <div class="info">
@@ -72,6 +72,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
     data() {
         return {
@@ -82,7 +83,7 @@ export default {
                 {
                     name: "HTML",
                     percentage: 80,
-                    status: "primary",
+                    status: "",
                 },
                 {
                     name: "CSS",
@@ -92,7 +93,7 @@ export default {
                 {
                     name: "JavaScript",
                     percentage: 70,
-                    status: "primary",
+                    status: "",
                 },
                 {
                     name: "Vue",
@@ -111,6 +112,9 @@ export default {
                 },
             ],
         };
+    },
+    computed: {
+        ...mapGetters(["userInfo"]),
     },
     methods: {
         handleClose(tag) {

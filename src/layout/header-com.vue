@@ -62,9 +62,9 @@ export default {
         handleCommand(command) {
             // this.$message("click on item " + command);
             if (command == "center") {
-                this.$router.push("/userSystem/center");
+                this.$router.push("/home/homePage");
             } else if (command == "setting") {
-                this.$router.push("/userSystem/setting");
+                this.$router.push("/home/setting");
             } else if (command == "goGitHub") {
                 window.open("https://github.com/dongzupeng/vueAdmin", "_blank");
             } else if (command == "logout") {
