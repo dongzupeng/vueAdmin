@@ -1,7 +1,22 @@
 const path = require("path");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const resolve = (dir) => path.resolve(__dirname, dir);
+// 打包分析
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
+const isProd = process.env.NODE_ENV === 'production';
+const { Echarts, VueCDN, AxiosCDN, VueRouterCDN, VuexCDN } = require('./src/plugins/cdn');
+const cdn = {
+  css: [],
+  js: [Echarts, VueCDN, AxiosCDN, VueRouterCDN, VuexCDN],
+  externals: {
+    'echarts': "Echarts",
+    'vue': 'Vue',
+    'vue-router': 'VueRouter',
+    'vuex': 'Vuex',
+    'axios': 'axios'
+  }
+};
 
 module.exports = {
   publicPath: "/vueAdmin/",
@@ -24,7 +39,7 @@ module.exports = {
       .end()
   },
   configureWebpack: (config) => {
-    if (process.env.NODE_ENV === "production") {
+    if (isProd) {
       // 为生产环境修改配置
       config.plugins.push(
         new UglifyJsPlugin({
@@ -39,7 +54,12 @@ module.exports = {
           parallel: true, //使用多进程并行运行来提高构建速度。默认并发运行数：os.cpus().length - 1。
         })
       );
+      //配置插件
+      config.plugins.push(new BundleAnalyzerPlugin());
     }
+  },
+  configureWebpack: {
+    externals: isProd ? cdn.externals : {}
   },
   css: {
     loaderOptions: {
