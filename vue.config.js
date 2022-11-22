@@ -5,21 +5,19 @@ const resolve = (dir) => path.resolve(__dirname, dir);
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const isProd = process.env.NODE_ENV === 'production';
-const { Echarts, VueCDN, AxiosCDN, VueRouterCDN, VuexCDN } = require('./src/plugins/cdn');
+const { Echarts, AxiosCDN, VuexCDN } = require('./src/plugins/cdn');
 const cdn = {
   css: [],
-  js: [Echarts, VueCDN, AxiosCDN, VueRouterCDN, VuexCDN],
+  js: [Echarts, AxiosCDN, VuexCDN],
   externals: {
-    'echarts': "Echarts",
-    'vue': 'Vue',
-    'vue-router': 'VueRouter',
-    'vuex': 'Vuex',
-    'axios': 'axios'
+    echarts: "Echarts",
+    vuex: 'Vuex',
+    axios: 'axios'
   }
 };
 
 module.exports = {
-  publicPath: "/vueAdmin/",
+  publicPath: "./",
   chainWebpack: (config) => {
     // 配置svg
     config.module
@@ -69,7 +67,7 @@ module.exports = {
       },
     },
   },
-  lintOnSave: process.env.NODE_ENV !== "production",
+  lintOnSave: !isProd,
   // 配置代理
   devServer: {
     open: true, // 是否打开浏览
