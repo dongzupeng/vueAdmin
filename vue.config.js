@@ -32,7 +32,7 @@ const externals = {
 
 
 module.exports = {
-  publicPath: "./",
+  publicPath: "/vueAdmin/",
   chainWebpack: (config) => {
     //cdn
     if (isProd) {
