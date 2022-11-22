@@ -77,7 +77,7 @@ module.exports = {
         })
       );
       //配置插件
-      config.plugins.push(new BundleAnalyzerPlugin());
+      // config.plugins.push(new BundleAnalyzerPlugin());
     }
   },
   css: {
