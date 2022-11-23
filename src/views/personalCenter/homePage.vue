@@ -57,7 +57,7 @@
                         :text-inside="true"
                         :stroke-width="18"
                         :percentage="item.percentage"
-                        :status="item.status"
+                        :color="item.color"
                     ></el-progress>
                 </div>
             </div>
@@ -83,32 +83,32 @@ export default {
                 {
                     name: "HTML",
                     percentage: 80,
-                    status: "",
+                    color: "#8759fe",
                 },
                 {
                     name: "CSS",
                     percentage: 70,
-                    status: "success",
+                    color: "#8759fe",
                 },
                 {
                     name: "JavaScript",
                     percentage: 70,
-                    status: "",
+                    color: "#8759fe",
                 },
                 {
                     name: "Vue",
                     percentage: 80,
-                    status: "success",
+                    color: "#8759fe",
                 },
                 {
                     name: "React",
                     percentage: 60,
-                    status: "warning",
+                    color: "#8759fe",
                 },
                 {
                     name: "TypeScript",
                     percentage: 60,
-                    status: "exception",
+                    color: "#8759fe",
                 },
             ],
         };

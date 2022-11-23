@@ -112,4 +112,14 @@ i {
 .title:hover {
     color: #8759fe !important;
 }
+/deep/.el-submenu__title i{
+    color: #fff !important;
+}
+/deep/.el-submenu__title:hover i {
+    color: #8759fe !important;
+}
+/deep/.el-menu-item:hover > i{
+    color: #8759fe !important;
+}
+
 </style>
