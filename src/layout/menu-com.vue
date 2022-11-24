@@ -105,7 +105,10 @@ export default {
     background-color: #fff !important;
     // background-color: #41a3fb !important;
 }
-
+//去除菜单上下边距
+/deep/ .el-menu-item-group__title{
+    padding: 0 !important;
+}
 i {
     color: #fff;
 }
