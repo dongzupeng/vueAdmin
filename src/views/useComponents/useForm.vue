@@ -59,6 +59,7 @@ export default {
                     type: "Input",
                     placeholder: "请输入项目名称...",
                     width: "320px",
+                    isUpdate: true
                 },
                 {
                     label: "项目描述",
@@ -66,6 +67,7 @@ export default {
                     type: "Input",
                     placeholder: "请输入项目描述...",
                     width: "320px",
+                    isUpdate: true
                 },
                 { label: "是否有营业", prop: "state", type: "Switch" },
                 {

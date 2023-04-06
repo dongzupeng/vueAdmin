@@ -15,7 +15,7 @@
                 :label="item.label"
                 :key="item.prop"
                 :prop="item.prop"
-                class="formItem"
+                :class="item.isUpdate && 'item'"
             >
                 <!-- 输入框 -->
                 <el-input
@@ -238,9 +238,12 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .form {
     width: 100%;
     padding: 0 20px;
+}
+.item .el-form-item__label{
+    color: red;
 }
 </style>
